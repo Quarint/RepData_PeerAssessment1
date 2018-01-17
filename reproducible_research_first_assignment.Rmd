@@ -56,7 +56,7 @@ dailyAvgActivity <- ddply(activity, .(interval), summarize, avgSteps = mean(step
 with(dailyAvgActivity, plot(interval, avgSteps, type = "l", main = "Average number of steps taken for each interval of the day"))
 ```
 
-### Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
+### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 We use the function `which.max` to determine which interval has the highest average number of steps.
 ```{r highest_steps}
@@ -77,7 +77,7 @@ There are `r nb.na` rows with `NA`'s  in the dataset.
 
 Since there are some days with no available value at all, using the mean or the median for that day would not give good results. Therefore we will replace the missing values at each 5-minute interval by the mean for that interval.
 
-### Create a new dataset that is equal to the original dataset but with the missing data filled in.
+### 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
 In order to create a new dataset where the `NA` values are replaced with our custom value, we create a custom function that will be applied to each row of our current dataset and pass it as an argument to the `apply` function.
 
@@ -97,7 +97,7 @@ activity.full <- mutate(activity.full,
                         interval = as.numeric(as.character(interval)))
 ```
 
-### Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
+### 4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 
 
